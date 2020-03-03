@@ -1,0 +1,79 @@
+<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable type="KIND_SpriteKind" id="N(a1-~y5dKyD@XJ^?A^8">Player</variable><variable type="KIND_SpriteKind" id="0lp-[G3#)1Z7W,`G4{6i">Projectile</variable><variable type="KIND_SpriteKind" id="8D1C%Qy+_m|O.:%jV/W9">Food</variable><variable type="KIND_SpriteKind" id="]Eop[a(R?yIJxV@wd~8S">Enemy</variable><variable id="Qj{A%ku4V@GOcJ@TrB^R">spaceShip</variable><variable id="gRZIcnu!n@/i66_5{SWx">mySprite</variable><variable id="VFOFkG.@Ea1XpU4$gG:$">projectile</variable></variables><block type="function_definition" id="sOVmX{#^)QIBWaU(#{.]" x="10" y="16"><mutation name="camera" functionid="[nV$Eb;O]H^m(Pm^fy._"/><field name="function_name">camera</field><statement name="STACK"><block type="camerafollow" id="P}u4OS_2QJ|Gu%:YO4.y"><value name="sprite"><block type="variables_get" id="7{ik,/lIS|aHNmLs,7z@"><field name="VAR" id="Qj{A%ku4V@GOcJ@TrB^R">spaceShip</field></block></value></block></statement></block><block type="function_definition" id="D@(M$hiZ})D}u`eMr2O+" x="30" y="190"><mutation name="sprite" functionid="|/pcx/Q@Pw8`sgT0=ZtZ"/><field name="function_name">sprite</field><statement name="STACK"><block type="variables_set" id=")4Bfji^}5Bp!H?X7(t2%"><field name="VAR" id="Qj{A%ku4V@GOcJ@TrB^R">spaceShip</field><value name="VALUE"><shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id="YS90S?=QPKIUHm(KZ.S$"><value name="img"><shadow type="screen_image_picker" id="9f2gw~LnwS4hWc!Ya3/{"><field name="img">img`
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . f f . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . f f . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . f f . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . f d d f . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . f d d f . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . f d d d d f . . . . . . . . . . . . . . . . . . . . . . . 
+. . . 2 4 2 . . . . . . . . . . . . . f d d d d f . . . . . . . . . . . . . 2 4 2 . . . . . . . 
+. . . 1 5 1 . . . . . . . . . . . . . f d d d d f . . . . . . . . . . . . . 1 5 1 . . . . . . . 
+. . . 1 5 1 . . . . . . . . . . . . . f d b b d f . . . . . . . . . . . . . 1 5 1 . . . . . . . 
+. . . . 1 2 4 2 . . . . . . . . . . f d d b b d d f . . . . . . . . . . 2 4 2 1 . . . . . . . . 
+. . . . 1 1 5 1 . . . . . . . . . . f d d b b d d f . . . . . . . . . . 1 5 1 1 . . . . . . . . 
+. . . . 1 1 5 1 . . . . . . . . . . f d d b b d d f . . . . . . . . . . 1 5 1 1 . . . . . . . . 
+. . . . 1 . 1 . . . . . . . . . . . f d d b b d d f . . . . . . . . . . . 1 . 1 . . . . . . . . 
+. . . . 1 . 1 . . . . . . . . . . . f d b b b b d f . . . . . . . . . . . 1 . 1 . . . . . . . . 
+. . . . 1 . 1 . . . . . . . . . . f d d b b b b d d f . . . . . . . . . . 1 . 1 . . . . . . . . 
+. . . . 1 . 1 . . . . . . . . . . f d d b b b b d d f . . . . . . . . . . 1 . 1 . . . . . . . . 
+. . . . 1 . 1 . . . . . . . . . f d d d b b b b d d d f . . . . . . . . . 1 . 1 . . . . . . . . 
+. . . . 1 . 1 . . . . . . . . . f d d d d d d d d d d f . . . . . . . . . 1 . 1 . . . . . . . . 
+. . . . 1 . f f . . . . . . . . f d d d d d d d d d d f . . . . . . . . f f . 1 . . . . . . . . 
+. . . . 1 f d d f f f f f . . . f d d d d 9 9 d d d d f . . . f f f f f d d f 1 . . . . . . . . 
+. . . . 1 . f d d d a d d f f f f d d d d 9 9 d d d d f f f f d d a d d d f . 1 . . . . . . . . 
+. . . . 1 . . f f f f f f f f f d d d d d d d d d d d d f f f f f f f f f . . 1 . . . . . . . . 
+. . . . 1 . f d d d d d d d d f d d d d d d d d d d d d f d d d d d d d d f . 1 . . . . . . . . 
+. . . . 1 f d d d f a f a f a f f d d d d d d d d d d f f a f a f a f d d d f 1 . . . . . . . . 
+. . . . 1 f d d d f a f a f a f f d d f f d d f f d d f f a f a f a f d d d f 1 . . . . . . . . 
+. . . . . . f d d d d d d d d f f f f a a f f a a f f f f d d d d d d d d f . . . . . . . . . . 
+. . . . . . . f f f f f f f f f d d f f f a a f f f d d f f f f f f f f f . . . . . . . . . . . 
+. . . . . . . . . . . . f d d d f f f a a a a a a f f f d d d f . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . f d d d f . f f f f f f f f . f d d d f . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . f d d d f . . . . . . . . . . f d d d f . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . f d d d f . . . . . . . . . . f d d d f . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . f d d d f . . . . . . . . . . f d d d f . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . f f f f f . . . . . . . . . . f f f f f . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
+`</field></shadow></value><value name="kind"><shadow type="spritekind" id="*JCce-~PLZA:h}E;]liX"><field name="MEMBER">Player</field></shadow></value></block></value><next><block type="Sprite_blockCombine_set" id="e!k-6b24aLJMU%Fo5Gtj"><field name="property">Sprite.ay@set</field><value name="mySprite"><block type="variables_get" id="jYl~5(xkV%X)Zn^0o/fc"><field name="VAR" id="Qj{A%ku4V@GOcJ@TrB^R">spaceShip</field></block></value><value name="value"><shadow type="math_number" id="Cdh}E2~|=w/dh)K:LyD."><field name="NUM">-300</field></shadow></value><next><block type="game_control_sprite" id="G,cVD1T(,TC4qvz5bY$|"><mutation xmlns="http://www.w3.org/1999/xhtml" _expanded="2" _input_init="true"></mutation><value name="sprite"><block type="variables_get" id="pakGU~(j_sYnuBT=)OtJ"><field name="VAR" id="Qj{A%ku4V@GOcJ@TrB^R">spaceShip</field></block></value><value name="vx"><shadow type="math_number" id="d/9UyM~sdVP~2c)Pso0q"><field name="NUM">300</field></shadow></value><value name="vy"><shadow type="math_number" id="%D3z@e{ctdW*RtoSi#yh"><field name="NUM">100</field></shadow></value><next><block type="variables_set" id="3HbRGL=tiky-}Ti~4at!"><field name="VAR" id="VFOFkG.@Ea1XpU4$gG:$">projectile</field><value name="VALUE"><shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number"><field name="NUM">0</field></shadow><block type="spritescreateprojectilefromsprite" id="|??a/ti~k4tn}REZjXy#"><value name="img"><shadow type="screen_image_picker" id="R0^~zyD5m6!-57(,6N++"><field name="img">img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . a a a a . . . . . . 
+. . . . . a . . . . a . . . . . 
+. . . . . a . . . . a . . . . . 
+. . . . . a . . . . a . . . . . 
+. . . . . a . . . . a . . . . . 
+. . . . . . a a a a . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`</field></shadow></value><value name="sprite"><block type="variables_get" id="F=YnCFoI%rV7Uj3@y.T`"><field name="VAR" id="Qj{A%ku4V@GOcJ@TrB^R">spaceShip</field></block></value><value name="vx"><shadow type="spriteSpeedPicker" id="rwvb:yVX8Wd@TwFOoB+)"><field name="speed">50</field></shadow></value><value name="vy"><shadow type="spriteSpeedPicker" id="X#g!d{d|,D|GQtu_]6Uc"><field name="speed">100</field></shadow></value></block></value></block></next></block></next></block></next></block></statement></block><block type="pxt-on-start" id="1)a82`E7x2Sj:.^OGh(1" x="110" y="570"><statement name="HANDLER"><block type="function_call" id="d.4z1+Pk|MiX}yn^Y:${"><mutation name="sprite" functionid="|/pcx/Q@Pw8`sgT0=ZtZ"/><next><block type="function_call" id="Tg_!ycwKHk{!sGq5YMT,"><mutation name="camera" functionid="[nV$Eb;O]H^m(Pm^fy._"/></block></next></block></statement></block></xml>
