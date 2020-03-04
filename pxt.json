@@ -3,7 +3,8 @@
     "description": "",
     "dependencies": {
         "device": "*",
-        "palette": "*"
+        "palette": "*",
+        "light": "*"
     },
     "files": [
         "main.blocks",
