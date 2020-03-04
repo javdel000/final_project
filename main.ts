@@ -62,9 +62,264 @@ function sprite () {
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
 `, SpriteKind.Player)
     // makes spaceShip go up no matter what
-    spaceShip.ay = -300
+    spaceShip.ay = -90
     // Allows you to move side to side
-    controller.moveSprite(spaceShip, 300, 100)
+    controller.moveSprite(spaceShip, 300, 0)
+    spaceShip.setPosition(58, 3800)
+}
+function tileMap () {
+    scene.setTileMap(img`
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f 2 f f f f f f f 
+f f 2 f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f 2 f f f f 
+f f f f f f 2 f f f 
+f f f f f f f f f f 
+f f f 2 f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f 2 f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f 2 f f f f f f f f 
+f 2 f f 2 f f f f f 
+f f f f 2 f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f 2 2 f f f 
+f f f f f f 2 f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f 2 f f f f f 
+f f f f 2 2 f f f f 
+f f f f f 2 2 f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f 2 f f f f f f f 
+f f 2 f f f f f f f 
+f f f f f f f f f f 
+f f f f 2 f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f 2 2 2 f f 
+f f f f f f f 2 f f 
+f f f f f f f f f f 
+f f f f f f 2 f f f 
+f f f f f 2 f f f f 
+f f f f f 2 f f f f 
+f f f f 2 f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f 2 f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f 2 f f f 
+f 2 f f f 2 f f f f 
+f 2 f f 2 f f f f f 
+f 2 f 2 f f f f f f 
+f f f f f f f f f f 
+f f f f f f 2 f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f 2 f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f 2 f f f 
+f f f f 2 2 f f f f 
+f f f f 2 f f f f f 
+f f f f f f f f f f 
+f f f f 2 2 f f f f 
+f f f f f f f f f f 
+2 f f f f 2 f f f f 
+2 f f f 2 f f f f f 
+f 2 f 2 f f f f f f 
+f f 2 f f f f f f f 
+f f f f f f f f f f 
+f f f f 2 f f f f f 
+f f f f 2 f f f f f 
+f f f f f 2 f f f f 
+f f f f f 2 f f f f 
+f f f f f f 2 f f f 
+f f f f f f f 2 f f 
+f f f f f f f 2 f f 
+f f f f f f f 2 f f 
+f 2 f f f f f 2 f f 
+f f 2 2 2 f f f f f 
+f f f 2 f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f 2 f 
+f f f f f f f f f 2 
+f f f 2 f f f f f f 
+f f 2 2 f 2 f f f f 
+f f f f 2 f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f 2 f f f f f 
+f f 2 2 f f f f f f 
+f f f f f f f f f f 
+f 2 f f f f f f f f 
+f f 2 f f f f f f f 
+f f 2 f f f f f f f 
+f f f 2 f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f 2 f f f f 
+f f f f f 2 f f f f 
+f f f f f 2 f f f f 
+f f f f f f f f f f 
+f 2 f f f f f f f f 
+f 2 f f 2 f f f f f 
+f 2 f f f f f f f f 
+f 2 f f f f 2 f f f 
+f 2 f f f 2 2 f f f 
+f f 2 f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f 2 f f f f f 
+f f f f 2 f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f 2 f f f f f f 
+f f f f f f f f 2 f 
+f f f f f f f 2 2 f 
+f f f f f f f 2 f f 
+f 2 2 2 2 2 2 2 2 2 
+f f f f 2 f f f f f 
+2 2 f f 2 f f f f f 
+f 2 f f 2 2 f f f f 
+f f 2 f f 2 f f f f 
+f f f f f 2 f f f f 
+f f f f f 2 f f f f 
+f f f f f 2 f f f f 
+f f f f 2 2 2 f f f 
+f 2 2 2 f 2 f f f f 
+2 f 2 2 2 2 f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f 2 f f f f f 
+f f f f f f f f f f 
+f f f f f f 2 f f f 
+f f f f f f 2 f f f 
+f f f f f 2 f f f f 
+f f f 2 2 f f f f f 
+f f f 2 2 f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f 2 f f f f f 
+f f f f 2 f f 2 f f 
+f f f f f 2 f f 2 f 
+f f f f f 2 f f f 2 
+f f f f f f 2 f f f 
+f f f f f f f 2 f f 
+f f f f f f f 2 f f 
+f f f 2 f f f 2 f f 
+f f f 2 f f f f 2 f 
+f f 2 f 2 f f f f f 
+f f f f f 2 f f f f 
+f f f f f 2 f f f f 
+f f f f f 2 f f f f 
+f f f f 2 f f f f f 
+f f f f 2 f f f f f 
+f f f f 2 f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f 2 
+f f f 2 f f f f 2 2 
+f 2 2 f f f f f 2 2 
+f 2 f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f 2 f f f 
+f f f f f f f 2 f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f 2 2 f f 
+f f 2 f f f f f 2 2 
+f f 2 f f f f f f f 
+f f f f f f f f f f 
+f 2 f f f f f f f f 
+f 2 f f f f f f f f 
+f 2 f f f f f f f f 
+f 2 f f f f f 2 f f 
+f 2 f f f f f f 2 f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f 2 f f 
+f f f f f 2 2 f f f 
+f f f f 2 f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f 2 f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f 2 f f f f 
+f f f f f 2 f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f 2 f f f f 
+f f f f 2 f f f f f 
+f f 2 2 f f f f f f 
+f f 2 f f f f f f f 
+f 2 f f f f f f f f 
+f 2 f f f f f f f f 
+2 f f f f f f f f f 
+2 f f f f f f f f f 
+2 f f f f f f f f f 
+2 2 f f f f f f f f 
+f f 2 2 f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f 2 f f f 
+f f f f f 2 f f f f 
+f f f f 2 f f f f f 
+f f f f 2 f f f f f 
+f f f f 2 f f f f f 
+f f f f f f 2 f f f 
+f f f f f f f f f f 
+`)
 }
 function camera () {
     scene.cameraFollowSprite(spaceShip)
@@ -224,6 +479,8 @@ let asteroid1: Image = null
 let gap = 0
 let projectile: Sprite = null
 let spaceShip: Sprite = null
+startingText()
+tileMap()
 sprite()
 camera()
 scene.setBackgroundImage(img`
@@ -348,7 +605,6 @@ f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
 f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
 `)
-startingText()
 game.onUpdateInterval(1500, function () {
     info.changeScoreBy(1)
     gap = Math.randomRange(1, 3)
@@ -502,7 +758,7 @@ game.onUpdateInterval(1500, function () {
 `
     }
     asteroidProjectile = sprites.createProjectileFromSide(asteroid1, 0, -45)
-    asteroidProjectile.top = Math.randomRange(0, 10)
+    asteroidProjectile.right = Math.randomRange(0, 10)
     asteroidProjectile = sprites.createProjectileFromSide(asteroid1, 0, -45)
-    asteroidProjectile.top = Math.randomRange(0, 10)
+    asteroidProjectile.left = Math.randomRange(0, 10)
 })

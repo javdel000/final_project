@@ -4,7 +4,8 @@
     "dependencies": {
         "device": "*",
         "palette": "*",
-        "light": "*"
+        "light": "*",
+        "color-coded-tilemap": "*"
     },
     "files": [
         "main.blocks",
