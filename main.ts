@@ -42,10 +42,13 @@ function sprite () {
 . . . . . . . . . . . . f f f f f . . . . . . . . . . f f f f f . . . . . . . . . . . . . . . . 
 `, SpriteKind.Player)
     // makes spaceShip go up no matter what
-    spaceShip.ay = -75
+    spaceShip.ay = -50
     // Allows you to move side to side
     controller.moveSprite(spaceShip, 500, 0)
     spaceShip.setPosition(80, 4000)
+}
+function secondMessage () {
+	
 }
 function lifeSystem () {
     info.setLife(10)
