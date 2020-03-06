@@ -1,6 +1,7 @@
 scene.onHitTile(SpriteKind.Player, 13, function (sprite2) {
-    level1 += 1
+    level += 1
     tileMaps()
+    level2()
 })
 function sprite () {
     spaceShip = sprites.create(img`
@@ -42,13 +43,22 @@ function sprite () {
 . . . . . . . . . . . . f f f f f . . . . . . . . . . f f f f f . . . . . . . . . . . . . . . . 
 `, SpriteKind.Player)
     // makes spaceShip go up no matter what
-    spaceShip.ay = -50
+    spaceShip.ay = -90
     // Allows you to move side to side
-    controller.moveSprite(spaceShip, 500, 0)
+    controller.moveSprite(spaceShip, 500, -2500)
     spaceShip.setPosition(80, 4000)
 }
+function level2 () {
+    if (level == 1) {
+        secondMessage()
+    }
+}
 function secondMessage () {
-	
+    game.splash("// Transmission Begins //")
+    game.splash("We finally got in contact ", "with HQ")
+    game.splash("They need a Business", "Package transported ASAP")
+    game.splash("Get to Planet Johnson", "In the Tennessee system")
+    game.splash("// Transmission Ends //")
 }
 function lifeSystem () {
     info.setLife(10)
@@ -70,8 +80,8 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 function tileMaps () {
     list = [img`
-d d d d d d d d d d 
-f f f f f f f f f d 
+d d d d d d d d d f 
+f f f f f f f f f f 
 f f 2 f f f f f f f 
 f f 2 f f f f f f f 
 f f f f f f f f f f 
@@ -321,258 +331,258 @@ f f f f 2 f f f f f
 f f f f f f 2 f f f 
 f f f f f f f f f f 
 `, img`
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 2 9 9 9 9 9 9 9 
-9 9 2 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 2 9 9 9 9 
-9 9 9 9 9 9 2 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 2 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 2 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 2 9 9 9 9 9 9 9 9 
-9 2 9 9 2 9 9 9 9 9 
-9 9 9 9 2 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 2 2 9 9 9 
-9 9 9 9 9 9 2 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 2 9 9 9 9 9 
-9 9 9 9 2 2 9 9 9 9 
-9 9 9 9 9 2 2 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 2 9 9 9 9 9 9 9 
-9 9 2 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 2 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 2 2 2 9 9 
-9 9 9 9 9 9 9 2 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 2 9 9 9 
-9 9 9 9 9 2 9 9 9 9 
-9 9 9 9 9 2 9 9 9 9 
-9 9 9 9 2 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 2 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 2 9 9 9 
-9 2 9 9 9 2 9 9 9 9 
-9 2 9 9 2 9 9 9 9 9 
-9 2 9 2 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 2 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 2 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 2 9 9 9 
-9 9 9 9 2 2 9 9 9 9 
-9 9 9 9 2 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 2 2 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-2 9 9 9 9 2 9 9 9 9 
-2 9 9 9 2 9 9 9 9 9 
-9 2 9 2 9 9 9 9 9 9 
-9 9 2 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 2 9 9 9 9 9 
-9 9 9 9 2 9 9 9 9 9 
-9 9 9 9 9 2 9 9 9 9 
-9 9 9 9 9 2 9 9 9 9 
-9 9 9 9 9 9 2 9 9 9 
-9 9 9 9 9 9 9 2 9 9 
-9 9 9 9 9 9 9 2 9 9 
-9 9 9 9 9 9 9 2 9 9 
-9 2 9 9 9 9 9 2 9 9 
-9 9 2 2 2 9 9 9 9 9 
-9 9 9 2 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 2 9 
-9 9 9 9 9 9 9 9 9 2 
-9 9 9 2 9 9 9 9 9 9 
-9 9 2 2 9 2 9 9 9 9 
-9 9 9 9 2 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 2 9 9 9 9 9 
-9 9 2 2 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 2 9 9 9 9 9 9 9 9 
-9 9 2 9 9 9 9 9 9 9 
-9 9 2 9 9 9 9 9 9 9 
-9 9 9 2 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 2 9 9 9 9 
-9 9 9 9 9 2 9 9 9 9 
-9 9 9 9 9 2 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 2 9 9 9 9 9 9 9 9 
-9 2 9 9 2 9 9 9 9 9 
-9 2 9 9 9 9 9 9 9 9 
-9 2 9 9 9 9 2 9 9 9 
-9 2 9 9 9 2 2 9 9 9 
-9 9 2 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 2 9 9 9 9 9 
-9 9 9 9 2 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 2 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 2 9 
-9 9 9 9 9 9 9 2 2 9 
-9 9 9 9 9 9 9 2 9 9 
-9 2 2 2 2 2 2 2 2 2 
-9 9 9 9 2 9 9 9 9 9 
-2 2 9 9 2 9 9 9 9 9 
-9 2 9 9 2 2 9 9 9 9 
-9 9 2 9 9 2 9 9 9 9 
-9 9 9 9 9 2 9 9 9 9 
-9 9 9 9 9 2 9 9 9 9 
-9 9 9 9 9 2 9 9 9 9 
-9 9 9 9 2 2 2 9 9 9 
-9 2 2 2 f 2 9 9 9 9 
-2 9 2 2 2 2 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 2 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 2 9 9 9 
-9 9 9 9 9 9 2 9 9 9 
-9 9 9 9 9 2 9 9 9 9 
-9 9 9 2 2 9 9 9 9 9 
-9 9 9 2 2 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 2 9 9 9 9 9 
-9 9 9 9 2 9 9 2 9 9 
-9 9 9 9 9 2 9 9 2 9 
-9 9 9 9 9 2 9 9 9 2 
-9 9 9 9 9 9 2 9 9 9 
-9 9 9 9 9 9 9 2 9 9 
-9 9 9 9 9 9 9 2 9 9 
-9 9 9 2 9 9 9 2 9 9 
-9 9 9 2 9 9 9 9 2 9 
-9 9 2 9 2 9 9 9 9 9 
-9 9 9 9 9 2 9 9 9 9 
-9 9 9 9 9 2 9 9 9 9 
-9 9 9 9 9 2 9 9 9 9 
-9 9 9 9 2 9 9 9 9 9 
-9 9 9 9 2 9 9 9 9 9 
-9 9 9 9 2 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 2 
-9 9 9 2 9 9 9 9 2 2 
-9 2 2 9 9 9 9 9 2 2 
-9 2 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 2 9 9 9 
-9 9 9 9 9 9 9 2 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 2 2 9 9 
-9 9 2 9 9 9 9 9 2 2 
-9 9 2 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 2 9 9 9 9 9 9 9 9 
-9 2 9 9 9 9 9 9 9 9 
-9 2 9 9 9 9 9 9 9 9 
-9 2 9 9 9 9 9 2 9 9 
-9 2 9 9 9 9 9 9 2 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 2 9 9 
-9 9 9 9 9 2 2 9 9 9 
-9 9 9 9 2 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 2 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 2 9 9 9 9 
-9 9 9 9 9 2 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 2 9 9 9 9 
-9 9 9 9 2 9 9 9 9 9 
-9 9 2 2 9 9 9 9 9 9 
-9 9 2 9 9 9 9 9 9 9 
-9 2 9 9 9 9 9 9 9 9 
-9 2 9 9 9 9 9 9 9 9 
-2 9 9 9 9 9 9 9 9 9 
-2 9 9 9 9 9 9 9 9 9 
-2 9 9 9 9 9 9 9 9 9 
-2 2 9 9 9 9 9 9 9 9 
-9 9 2 2 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
-9 9 9 9 9 9 2 9 9 9 
-9 9 9 9 9 2 9 9 9 9 
-9 9 9 9 2 9 9 9 9 9 
-9 9 9 9 2 9 9 9 9 9 
-9 9 9 9 2 9 9 9 9 9 
-9 9 9 2 9 9 2 9 9 9 
-9 9 9 9 9 9 9 9 9 9 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f 2 f f f f f f f 
+f f 2 f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f 2 f f f f 
+f f f f f f 2 f f f 
+f f f f f f f f f f 
+f f f 2 f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f 2 f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f 2 f f f f f 
+f f f f 2 f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f 2 2 f f f 
+f f f f f f 2 f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f 2 f f f f f 
+f f f f 2 2 f f f f 
+f f f f f 2 2 f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f 2 f f f f f f f 
+f f 2 f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f 2 f 2 f f 
+f f f f f f f 2 f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f 2 f f f f 
+f f f f f 2 f f f f 
+f f f f 2 f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f 2 f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f 2 f f f 2 f f f f 
+f 2 f f 2 f f f f f 
+f 2 f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f 2 2 f f f f 
+f f f f 2 f f f f f 
+f f f f f f f f f f 
+f f f f 2 2 f f f f 
+f f f f f f f f f f 
+2 f f f f 2 f f f f 
+2 f f f 2 f f f f f 
+f 2 f f f f f f f f 
+f f 2 f f f f f f f 
+f f f f f f f f f f 
+f f f f 2 f f f f f 
+f f f f 2 f f f f f 
+f f f f f 2 f f f f 
+f f f f f 2 f f f f 
+f f f f f f 2 f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f 2 f f f f f f f f 
+f f 2 f 2 f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f 2 f 
+f f f f f f f f f 2 
+f f f f f f f f f f 
+f f 2 f f 2 f f f f 
+f f f f 2 f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f 2 f f f f f f f 
+f f f f f f f f f f 
+f 2 f f f f f f f f 
+f f 2 f f f f f f f 
+f f 2 f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f 2 f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f 2 f f f f f 
+f f f f 2 f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f 2 f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f 2 
+f f f f f f f f f f 
+2 f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f 2 f f f f 
+f f f f f 2 f f f f 
+f f f f f 2 f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f 2 f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f 2 f f f f 
+f f f f 2 f f f f f 
+f f f f 2 f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f 2 f f f f f 
+f f f f 2 f f f f f 
+f f f f f 2 f f 2 f 
+f f f f f 2 f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f 2 f f f f f 
+f f f f f 2 f f f f 
+f f f f f 2 f f f f 
+f f f f f 2 f f f f 
+f f f f 2 f f f f f 
+f f f f 2 f f f f f 
+f f f f 2 f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f 2 
+f f f f f f f f 2 2 
+f f f f f f f f 2 2 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f 2 f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f 2 f f 
+f f f f f f f f 2 f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f 2 f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f 2 f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
 `]
-    scene.setTileMap(list[level1])
+    scene.setTileMap(list[level])
     tiles.placeOnTile(spaceShip, tiles.getTileLocation(3, 248))
 }
 function startingText () {
@@ -716,8 +726,8 @@ let gap = 0
 let list: Image[] = []
 let asteroidProjectile: Sprite = null
 let spaceShip: Sprite = null
-let level1 = 0
-level1 = 0
+let level = 0
+level = 0
 scene.setTile(13, img`
 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
