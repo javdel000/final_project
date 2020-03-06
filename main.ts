@@ -45,8 +45,106 @@ function sprite () {
     // makes spaceShip go up no matter what
     spaceShip.ay = -90
     // Allows you to move side to side
-    controller.moveSprite(spaceShip, 500, -2500)
+    controller.moveSprite(spaceShip, 500, 0)
     spaceShip.setPosition(80, 4000)
+}
+function thirdMessage () {
+    game.splash("// Transmission Begins //")
+    game.splash("We finally got in contact ", "with HQ")
+    game.splash("They need a Business", "Package transported ASAP")
+    game.splash("Get to Planet Johnson", "In the Tennessee system")
+    game.splash("// Transmission Ends //")
+}
+function level3 () {
+    if (level == 2) {
+        // makes spaceShip go up no matter what
+        spaceShip.ay = -300
+    } else {
+        thirdMessage()
+    }
+}
+function level2Stars () {
+    info.changeScoreBy(2)
+    gap2 = Math.randomRange(1, 3)
+    if (gap2 == 0) {
+        shootingStar = img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . 5 5 5 5 5 5 . . . 
+. . . . 5 5 5 5 5 5 5 5 5 . . . 
+. . . 5 5 5 5 5 c 5 5 5 5 5 . . 
+. . 5 5 5 5 5 c 5 5 5 5 5 5 . . 
+. 5 5 5 5 5 5 5 5 5 5 5 5 5 5 . 
+. 5 5 5 c 5 5 5 5 5 5 5 5 5 5 . 
+. 5 5 5 c 5 5 5 5 c 5 5 5 5 5 . 
+. 5 5 5 c 5 5 5 5 5 5 5 5 5 5 . 
+. . 5 5 5 5 5 c 5 5 5 5 5 5 5 5 
+. . 5 5 5 5 5 c c 5 5 5 5 5 5 5 
+. . . 5 5 5 5 5 5 5 5 5 5 5 5 5 
+. . . . 5 5 5 5 5 5 5 5 5 5 5 . 
+. . . . . . . . 5 5 5 5 5 5 5 . 
+. . . . . . . . . 5 5 5 5 5 5 . 
+`
+    } else if (gap2 == 1) {
+        shootingStar = img`
+. . . . . . . . . . . . . . . . 
+. . . 5 5 . . . . . . . . . . . 
+. . 5 5 5 5 5 5 . . . . . . . . 
+. . 5 5 5 5 5 5 5 5 5 . . . . . 
+. . 5 5 5 5 5 5 5 c 5 . . . . . 
+. . 5 5 5 5 5 c c c 5 . . . . . 
+. . 5 5 5 5 5 c c c 5 . . . . . 
+. 5 5 5 5 5 c 5 c c 5 5 . . . . 
+. 5 5 5 5 5 5 5 c c 5 5 5 . . . 
+. 5 5 c 5 5 5 5 c 5 5 5 5 . . . 
+. 5 c c 5 5 c c c 5 5 5 5 . . . 
+. 5 5 5 5 5 c c c c 5 5 5 . . . 
+. 5 5 5 5 5 5 c c c 5 5 5 . . . 
+. . 5 5 5 5 5 5 c c 5 5 . . . . 
+. . . 5 5 5 5 . 5 5 5 . . . . . 
+. . . . . . . . . . . . . . . . 
+`
+    } else if (gap2 == 2) {
+        shootingStar = img`
+. . . . 5 5 5 . . . . . . . . . 
+. . . 5 5 c 5 5 5 . . . . . . . 
+. . 5 c c c c c c 5 5 . . . . . 
+. . 5 c c c 5 c c c 5 5 . . . . 
+. 5 c c c 5 5 5 c c c 5 . . . . 
+5 5 c 5 5 c c 5 c c c 5 . . . . 
+5 c c 5 c c c 5 5 c c c 5 . . . 
+5 c 5 5 5 c c c c 5 c c c 5 . . 
+5 c 5 5 5 5 c c c c 5 c c 5 . . 
+5 c c 5 c 5 5 c c c c 5 c 5 . . 
+5 5 5 c 5 5 5 5 c c c 5 c 5 . . 
+5 5 5 5 c c c c 5 5 5 5 c 5 . . 
+. 5 5 . 5 5 5 c c c c c c 5 . . 
+. . . . . . 5 5 5 5 5 5 5 . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`
+    } else {
+        shootingStar = img`
+. . . . . 5 5 5 5 5 5 . . . . . 
+. . 5 5 5 5 5 5 5 5 5 5 5 . . . 
+. 5 5 5 5 5 5 5 5 5 5 5 5 5 . . 
+. 5 5 5 5 5 c c 5 5 5 5 5 5 . . 
+. 5 5 5 5 5 c b c 5 5 5 5 5 . . 
+. 5 5 5 5 c c b c c 5 5 5 5 . . 
+. 5 5 5 5 5 c c c c 5 5 5 5 . . 
+. 5 5 5 5 5 5 c c c c 5 5 5 . . 
+. 5 5 5 5 5 5 5 5 c c 5 5 5 . . 
+. 5 5 5 5 c 5 c 5 c c 5 5 5 . . 
+. 5 5 5 5 c c 5 5 c c 5 5 5 . . 
+. 5 5 5 5 5 5 5 5 5 5 5 5 5 . . 
+. 5 5 5 5 5 5 5 5 5 5 5 5 5 . . 
+. 5 5 5 5 5 5 5 5 5 5 5 5 . . . 
+. . . . 5 5 5 5 5 5 5 . . . . . 
+. . . . . . . . . . . . . . . . 
+`
+    }
+    starProjectile = sprites.createProjectileFromSide(shootingStar, 0, 25)
+    starProjectile.left = Math.randomRange(0, 200)
 }
 function level2 () {
     if (level == 1) {
@@ -59,10 +157,7 @@ function level2 () {
 }
 function secondMessage () {
     game.splash("// Transmission Begins //")
-    game.splash("We finally got in contact ", "with HQ")
-    game.splash("They need a Business", "Package transported ASAP")
-    game.splash("Get to Planet Johnson", "In the Tennessee system")
-    game.splash("// Transmission Ends //")
+    game.splash("A large area of", "")
 }
 function lifeSystem () {
     info.setLife(10)
@@ -333,6 +428,257 @@ f f f f 2 f f f f f
 f f f f 2 f f f f f 
 f f f f 2 f f f f f 
 f f f f f f 2 f f f 
+f f f f f f f f f f 
+`, img`
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f 2 f f f f f f f 
+f f 2 f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f 2 f f f 
+f f f f f f f f f f 
+f f f 2 f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f 2 f f f f f 
+f f f f 2 f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f 2 f f f 
+f f f f f f 2 f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f 2 f f f f f 
+f f f f 2 f f f f f 
+f f f f f f 2 f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f 2 f f f f f f f 
+f f 2 f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f 2 f f 
+f f f f f f f 2 f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f 2 f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f 2 f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f 2 f f f f f f f f 
+f 2 f f 2 f f f f f 
+f 2 f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f 2 f f f f f 
+f f f f 2 f f f f f 
+f f f f f f f f f f 
+f f f f 2 f f f f f 
+f f f f f f f f f f 
+2 f f f f f f f f f 
+2 f f f 2 f f f f f 
+f 2 f f f f f f f f 
+f f 2 f f f f f f f 
+f f f f f f f f f f 
+f f f f 2 f f f f f 
+f f f f 2 f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f 2 f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f 2 f f f f f f f f 
+f f 2 f 2 f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f 2 f 
+f f f f f f f f f 2 
+f f f f f f f f f f 
+f f 2 f f f f f f f 
+f f f f 2 f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f 2 f f f f f f f 
+f f f f f f f f f f 
+f 2 f f f f f f f f 
+f f 2 f f f f f f f 
+f f 2 f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f 2 f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f 2 f f f f f 
+f f f f 2 f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f 2 f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f 2 
+f f f f f f f f f f 
+2 f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f 2 f f f f 
+f f f f f 2 f f f f 
+f f f f f 2 f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f 2 f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f 2 f f f f 
+f f f f 2 f f f f f 
+f f f f 2 f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f 2 f f f f f 
+f f f f 2 f f f f f 
+f f f f f 2 f f 2 f 
+f f f f f 2 f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f 2 f f f f f 
+f f f f f 2 f f f f 
+f f f f f 2 f f f f 
+f f f f f 2 f f f f 
+f f f f 2 f f f f f 
+f f f f 2 f f f f f 
+f f f f 2 f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f 2 
+f f f f f f f f 2 2 
+f f f f f f f f 2 2 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f 2 f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f 2 f f 
+f f f f f f f f 2 f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f 2 f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f 2 f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
+f f f f f f f f f f 
 f f f f f f f f f f 
 `, img`
 f f f f f f f f f f 
@@ -724,14 +1070,171 @@ function spriteBullet () {
 info.onLifeZero(function () {
     game.over(false)
 })
-let starProjectile: Sprite = null
-let shootingStar: Image = null
-let gap2 = 0
+function level1Asteroids () {
+    info.changeScoreBy(1)
+    gap = Math.randomRange(1, 3)
+    if (gap == 0) {
+        asteroid1 = img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . b b b b b b . . . 
+. . . . b b b b b b b b b . . . 
+. . . b b b b b c b b b b b . . 
+. . b b b b b c b b b b b b . . 
+. b b b b b b b b b b b b b b . 
+. b b b c b b b b b b b b b b . 
+. b b b c b b b b c b b b b b . 
+. b b b c b b b b b b b b b b . 
+. . b b b b b c b b b b b b b b 
+. . b b b b b c c b b b b b b b 
+. . . b b b b b b b b b b b b b 
+. . . . b b b b b b b b b b b . 
+. . . . . . . . b b b b b b b . 
+. . . . . . . . . b b b b b b . 
+`
+        asteroid2 = img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . b b . . . . 
+. . . . . . b b b b b b b b . . 
+. . . . . b b b b b b b b b . . 
+. . . . b b c c b b b b b b . . 
+. . . b b c c b b b b b b b . . 
+. . . b c c b b b b b b b b . . 
+. . . b c b b b b b b b b . . . 
+. . . b c c b b b b b b . . . . 
+. . . . b b c c c c b . . . . . 
+. . . . . b b b b b b . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`
+    } else if (gap == 1) {
+        asteroid1 = img`
+. . . . . . . . . . . . . . . . 
+. . . b b . . . . . . . . . . . 
+. . b b b b b b . . . . . . . . 
+. . b b b b b b b b b . . . . . 
+. . b b b b b b b c b . . . . . 
+. . b b b b b c c c b . . . . . 
+. . b b b b b c c c b . . . . . 
+. b b b b b c b c c b b . . . . 
+. b b b b b b b c c b b b . . . 
+. b b c b b b b c b b b b . . . 
+. b c c b b c c c b b b b . . . 
+. b b b b b c c c c b b b . . . 
+. b b b b b b c c c b b b . . . 
+. . b b b b b b c c b b . . . . 
+. . . b b b b . b b b . . . . . 
+. . . . . . . . . . . . . . . . 
+`
+        asteroid2 = img`
+. . . . . . . . . . . . . . . . 
+. . . b b b b b b b b . . . . . 
+. . b b b b b b b b b b . . . . 
+. . b b b b b b b b b b b . . . 
+. . b b b c b b b b b b b . . . 
+. . b b c c c b b b b b b b . . 
+. . b b b b c c c b b b b b b . 
+. b b b c c c c c b b b c c b . 
+. b b b b c c c b c c b b b b . 
+. b b b b b c c c b b b b b b . 
+. b b b b b b b b b b b b b . . 
+. . b b b b c c b c b b b b . . 
+. . b b b b b c c c b b b . . . 
+. . . . . b b b b b b b . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`
+    } else if (gap == 2) {
+        asteroid1 = img`
+. . . . b b b . . . . . . . . . 
+. . . b b c b b b . . . . . . . 
+. . b c c c c c c b b . . . . . 
+. . b c c c b c c c b b . . . . 
+. b c c c b b b c c c b . . . . 
+b b c b b c c b c c c b . . . . 
+b c c b c c c b b c c c b . . . 
+b c b c b c c c c b c c c b . . 
+b c b c b b c c c c b c c b . . 
+b c c b c b b c c c c b c b . . 
+b b b c b b b b c c c b c b . . 
+b b b b c c c c b b b b c b . . 
+. b b . b b b c c c c c c b . . 
+. . . . . . b b b b b b b . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`
+        asteroid2 = img`
+. . . . . . . . b b b b . . . . 
+. . . . . b b b b b b b b b . . 
+. . . . . b b b b b b b b b . . 
+. . . . b b b b b b b b b b . . 
+. . . b b b b b b b b b b b . . 
+. . b b b b b b b b b b b . . . 
+. b b b b b b b b b b b b . . . 
+. b b b b c c b b b b b b b . . 
+. b b b b c c b b b b f b b . . 
+b b b b c c c c b b b b b b . . 
+b b b b b b b b b b b . . . . . 
+. b b b b b b b b b b . . . . . 
+. . b b b b b b b b b . . . . . 
+. . . b b b b b b b . . . . . . 
+. . . . b b b b b . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`
+    } else {
+        asteroid1 = img`
+. . . . . b b b b b b . . . . . 
+. . b b b b b b b b b b b . . . 
+. b b b b b b b b b b b b b . . 
+. b b b b b c c b b b b b b . . 
+. b b b b b c b c b b b b b . . 
+. b b b b c c b c c b b b b . . 
+. b b b b b c c c c b b b b . . 
+. b b b b b b c c c c b b b . . 
+. b b b b b b b b c c b b b . . 
+. b b b b c b c b c c b b b . . 
+. b b b b c c b b c c b b b . . 
+. b b b b b b b b b b b b b . . 
+. b b b b b b b b b b b b b . . 
+. b b b b b b b b b b b b . . . 
+. . . . b b b b b b b . . . . . 
+. . . . . . . . . . . . . . . . 
+`
+        asteroid2 = img`
+. . . . . . . . b b b b b . . . 
+. . . b b b b b b b b b b b b . 
+. . b b b b b c c c c c c c b . 
+. b b c c c c b b b b b b c b b 
+b b b b b b b b b b b b b c b b 
+b b b b b b b b b b b b b c b b 
+b b b b c c b b b b b b b c b . 
+b b b b b c b c c c c c c c b . 
+b b b c b b b c c b b b b b b . 
+b b b b b c c c b b b b b b b . 
+b b b b b b b b b b b b b b . . 
+b b b b b b b b b b b b b b . . 
+b b b b b b b b b b b b b . . . 
+. b b b b b b b b b b b . . . . 
+. . . b b b b b b . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`
+    }
+    asteroidProjectile = sprites.createProjectileFromSide(asteroid1, 0, 25)
+    asteroidProjectile.left = Math.randomRange(0, 110)
+    asteroidProjectile = sprites.createProjectileFromSide(asteroid1, 0, 25)
+    asteroidProjectile.right = Math.randomRange(0, 100)
+}
 let asteroid2: Image = null
 let asteroid1: Image = null
 let gap = 0
 let list: Image[] = []
 let asteroidProjectile: Sprite = null
+let starProjectile: Sprite = null
+let shootingStar: Image = null
+let gap2 = 0
 let spaceShip: Sprite = null
 let level = 0
 level = 0
@@ -760,245 +1263,14 @@ camera()
 lifeSystem()
 game.onUpdateInterval(1500, function () {
     if (level == 0) {
-        info.changeScoreBy(1)
-        gap = Math.randomRange(1, 3)
-        if (gap == 0) {
-            asteroid1 = img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . b b b b b b . . . 
-. . . . b b b b b b b b b . . . 
-. . . b b b b b c b b b b b . . 
-. . b b b b b c b b b b b b . . 
-. b b b b b b b b b b b b b b . 
-. b b b c b b b b b b b b b b . 
-. b b b c b b b b c b b b b b . 
-. b b b c b b b b b b b b b b . 
-. . b b b b b c b b b b b b b b 
-. . b b b b b c c b b b b b b b 
-. . . b b b b b b b b b b b b b 
-. . . . b b b b b b b b b b b . 
-. . . . . . . . b b b b b b b . 
-. . . . . . . . . b b b b b b . 
-`
-            asteroid2 = img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . b b . . . . 
-. . . . . . b b b b b b b b . . 
-. . . . . b b b b b b b b b . . 
-. . . . b b c c b b b b b b . . 
-. . . b b c c b b b b b b b . . 
-. . . b c c b b b b b b b b . . 
-. . . b c b b b b b b b b . . . 
-. . . b c c b b b b b b . . . . 
-. . . . b b c c c c b . . . . . 
-. . . . . b b b b b b . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`
-        } else if (gap == 1) {
-            asteroid1 = img`
-. . . . . . . . . . . . . . . . 
-. . . b b . . . . . . . . . . . 
-. . b b b b b b . . . . . . . . 
-. . b b b b b b b b b . . . . . 
-. . b b b b b b b c b . . . . . 
-. . b b b b b c c c b . . . . . 
-. . b b b b b c c c b . . . . . 
-. b b b b b c b c c b b . . . . 
-. b b b b b b b c c b b b . . . 
-. b b c b b b b c b b b b . . . 
-. b c c b b c c c b b b b . . . 
-. b b b b b c c c c b b b . . . 
-. b b b b b b c c c b b b . . . 
-. . b b b b b b c c b b . . . . 
-. . . b b b b . b b b . . . . . 
-. . . . . . . . . . . . . . . . 
-`
-            asteroid2 = img`
-. . . . . . . . . . . . . . . . 
-. . . b b b b b b b b . . . . . 
-. . b b b b b b b b b b . . . . 
-. . b b b b b b b b b b b . . . 
-. . b b b c b b b b b b b . . . 
-. . b b c c c b b b b b b b . . 
-. . b b b b c c c b b b b b b . 
-. b b b c c c c c b b b c c b . 
-. b b b b c c c b c c b b b b . 
-. b b b b b c c c b b b b b b . 
-. b b b b b b b b b b b b b . . 
-. . b b b b c c b c b b b b . . 
-. . b b b b b c c c b b b . . . 
-. . . . . b b b b b b b . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`
-        } else if (gap == 2) {
-            asteroid1 = img`
-. . . . b b b . . . . . . . . . 
-. . . b b c b b b . . . . . . . 
-. . b c c c c c c b b . . . . . 
-. . b c c c b c c c b b . . . . 
-. b c c c b b b c c c b . . . . 
-b b c b b c c b c c c b . . . . 
-b c c b c c c b b c c c b . . . 
-b c b c b c c c c b c c c b . . 
-b c b c b b c c c c b c c b . . 
-b c c b c b b c c c c b c b . . 
-b b b c b b b b c c c b c b . . 
-b b b b c c c c b b b b c b . . 
-. b b . b b b c c c c c c b . . 
-. . . . . . b b b b b b b . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`
-            asteroid2 = img`
-. . . . . . . . b b b b . . . . 
-. . . . . b b b b b b b b b . . 
-. . . . . b b b b b b b b b . . 
-. . . . b b b b b b b b b b . . 
-. . . b b b b b b b b b b b . . 
-. . b b b b b b b b b b b . . . 
-. b b b b b b b b b b b b . . . 
-. b b b b c c b b b b b b b . . 
-. b b b b c c b b b b f b b . . 
-b b b b c c c c b b b b b b . . 
-b b b b b b b b b b b . . . . . 
-. b b b b b b b b b b . . . . . 
-. . b b b b b b b b b . . . . . 
-. . . b b b b b b b . . . . . . 
-. . . . b b b b b . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`
-        } else {
-            asteroid1 = img`
-. . . . . b b b b b b . . . . . 
-. . b b b b b b b b b b b . . . 
-. b b b b b b b b b b b b b . . 
-. b b b b b c c b b b b b b . . 
-. b b b b b c b c b b b b b . . 
-. b b b b c c b c c b b b b . . 
-. b b b b b c c c c b b b b . . 
-. b b b b b b c c c c b b b . . 
-. b b b b b b b b c c b b b . . 
-. b b b b c b c b c c b b b . . 
-. b b b b c c b b c c b b b . . 
-. b b b b b b b b b b b b b . . 
-. b b b b b b b b b b b b b . . 
-. b b b b b b b b b b b b . . . 
-. . . . b b b b b b b . . . . . 
-. . . . . . . . . . . . . . . . 
-`
-            asteroid2 = img`
-. . . . . . . . b b b b b . . . 
-. . . b b b b b b b b b b b b . 
-. . b b b b b c c c c c c c b . 
-. b b c c c c b b b b b b c b b 
-b b b b b b b b b b b b b c b b 
-b b b b b b b b b b b b b c b b 
-b b b b c c b b b b b b b c b . 
-b b b b b c b c c c c c c c b . 
-b b b c b b b c c b b b b b b . 
-b b b b b c c c b b b b b b b . 
-b b b b b b b b b b b b b b . . 
-b b b b b b b b b b b b b b . . 
-b b b b b b b b b b b b b . . . 
-. b b b b b b b b b b b . . . . 
-. . . b b b b b b . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`
-        }
-        asteroidProjectile = sprites.createProjectileFromSide(asteroid1, 0, 25)
-        asteroidProjectile.left = Math.randomRange(0, 110)
-        asteroidProjectile = sprites.createProjectileFromSide(asteroid1, 0, 25)
-        asteroidProjectile.right = Math.randomRange(0, 100)
-    } else if (level == 1) {
-        info.changeScoreBy(2)
-        gap2 = Math.randomRange(1, 3)
-        if (gap2 == 0) {
-            shootingStar = img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . 5 5 5 5 5 5 . . . 
-. . . . 5 5 5 5 5 5 5 5 5 . . . 
-. . . 5 5 5 5 5 c 5 5 5 5 5 . . 
-. . 5 5 5 5 5 c 5 5 5 5 5 5 . . 
-. 5 5 5 5 5 5 5 5 5 5 5 5 5 5 . 
-. 5 5 5 c 5 5 5 5 5 5 5 5 5 5 . 
-. 5 5 5 c 5 5 5 5 c 5 5 5 5 5 . 
-. 5 5 5 c 5 5 5 5 5 5 5 5 5 5 . 
-. . 5 5 5 5 5 c 5 5 5 5 5 5 5 5 
-. . 5 5 5 5 5 c c 5 5 5 5 5 5 5 
-. . . 5 5 5 5 5 5 5 5 5 5 5 5 5 
-. . . . 5 5 5 5 5 5 5 5 5 5 5 . 
-. . . . . . . . 5 5 5 5 5 5 5 . 
-. . . . . . . . . 5 5 5 5 5 5 . 
-`
-        } else if (gap2 == 1) {
-            shootingStar = img`
-. . . . . . . . . . . . . . . . 
-. . . 5 5 . . . . . . . . . . . 
-. . 5 5 5 5 5 5 . . . . . . . . 
-. . 5 5 5 5 5 5 5 5 5 . . . . . 
-. . 5 5 5 5 5 5 5 c 5 . . . . . 
-. . 5 5 5 5 5 c c c 5 . . . . . 
-. . 5 5 5 5 5 c c c 5 . . . . . 
-. 5 5 5 5 5 c 5 c c 5 5 . . . . 
-. 5 5 5 5 5 5 5 c c 5 5 5 . . . 
-. 5 5 c 5 5 5 5 c 5 5 5 5 . . . 
-. 5 c c 5 5 c c c 5 5 5 5 . . . 
-. 5 5 5 5 5 c c c c 5 5 5 . . . 
-. 5 5 5 5 5 5 c c c 5 5 5 . . . 
-. . 5 5 5 5 5 5 c c 5 5 . . . . 
-. . . 5 5 5 5 . 5 5 5 . . . . . 
-. . . . . . . . . . . . . . . . 
-`
-        } else if (gap2 == 2) {
-            shootingStar = img`
-. . . . 5 5 5 . . . . . . . . . 
-. . . 5 5 c 5 5 5 . . . . . . . 
-. . 5 c c c c c c 5 5 . . . . . 
-. . 5 c c c 5 c c c 5 5 . . . . 
-. 5 c c c 5 5 5 c c c 5 . . . . 
-5 5 c 5 5 c c 5 c c c 5 . . . . 
-5 c c 5 c c c 5 5 c c c 5 . . . 
-5 c 5 5 5 c c c c 5 c c c 5 . . 
-5 c 5 5 5 5 c c c c 5 c c 5 . . 
-5 c c 5 c 5 5 c c c c 5 c 5 . . 
-5 5 5 c 5 5 5 5 c c c 5 c 5 . . 
-5 5 5 5 c c c c 5 5 5 5 c 5 . . 
-. 5 5 . 5 5 5 c c c c c c 5 . . 
-. . . . . . 5 5 5 5 5 5 5 . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`
-        } else {
-            shootingStar = img`
-. . . . . 5 5 5 5 5 5 . . . . . 
-. . 5 5 5 5 5 5 5 5 5 5 5 . . . 
-. 5 5 5 5 5 5 5 5 5 5 5 5 5 . . 
-. 5 5 5 5 5 c c 5 5 5 5 5 5 . . 
-. 5 5 5 5 5 c b c 5 5 5 5 5 . . 
-. 5 5 5 5 c c b c c 5 5 5 5 . . 
-. 5 5 5 5 5 c c c c 5 5 5 5 . . 
-. 5 5 5 5 5 5 c c c c 5 5 5 . . 
-. 5 5 5 5 5 5 5 5 c c 5 5 5 . . 
-. 5 5 5 5 c 5 c 5 c c 5 5 5 . . 
-. 5 5 5 5 c c 5 5 c c 5 5 5 . . 
-. 5 5 5 5 5 5 5 5 5 5 5 5 5 . . 
-. 5 5 5 5 5 5 5 5 5 5 5 5 5 . . 
-. 5 5 5 5 5 5 5 5 5 5 5 5 . . . 
-. . . . 5 5 5 5 5 5 5 . . . . . 
-. . . . . . . . . . . . . . . . 
-`
-        }
-        starProjectile = sprites.createProjectileFromSide(shootingStar, 0, 25)
-        asteroidProjectile.left = Math.randomRange(0, 110)
+        level1Asteroids()
     }
 })
 game.onUpdate(function () {
     spaceShip.setFlag(SpriteFlag.StayInScreen, true)
+})
+game.onUpdateInterval(1000, function () {
+    if (level == 1) {
+        level2Stars()
+    }
 })
