@@ -50,6 +50,10 @@ function sprite () {
 }
 function level2 () {
     if (level == 1) {
+        // makes spaceShip go up no matter what
+        spaceShip.ay = -300
+    }
+    if (level == 1) {
         secondMessage()
     }
 }
