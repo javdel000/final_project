@@ -724,6 +724,9 @@ function spriteBullet () {
 info.onLifeZero(function () {
     game.over(false)
 })
+let starProjectile: Sprite = null
+let shootingStar: Image = null
+let gap2 = 0
 let asteroid2: Image = null
 let asteroid1: Image = null
 let gap = 0
@@ -756,10 +759,11 @@ sprite()
 camera()
 lifeSystem()
 game.onUpdateInterval(1500, function () {
-    info.changeScoreBy(1)
-    gap = Math.randomRange(1, 3)
-    if (gap == 0) {
-        asteroid1 = img`
+    if (level == 0) {
+        info.changeScoreBy(1)
+        gap = Math.randomRange(1, 3)
+        if (gap == 0) {
+            asteroid1 = img`
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 . . . . . . . b b b b b b . . . 
@@ -777,7 +781,7 @@ game.onUpdateInterval(1500, function () {
 . . . . . . . . b b b b b b b . 
 . . . . . . . . . b b b b b b . 
 `
-        asteroid2 = img`
+            asteroid2 = img`
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
@@ -795,8 +799,8 @@ game.onUpdateInterval(1500, function () {
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `
-    } else if (gap == 1) {
-        asteroid1 = img`
+        } else if (gap == 1) {
+            asteroid1 = img`
 . . . . . . . . . . . . . . . . 
 . . . b b . . . . . . . . . . . 
 . . b b b b b b . . . . . . . . 
@@ -814,7 +818,7 @@ game.onUpdateInterval(1500, function () {
 . . . b b b b . b b b . . . . . 
 . . . . . . . . . . . . . . . . 
 `
-        asteroid2 = img`
+            asteroid2 = img`
 . . . . . . . . . . . . . . . . 
 . . . b b b b b b b b . . . . . 
 . . b b b b b b b b b b . . . . 
@@ -832,8 +836,8 @@ game.onUpdateInterval(1500, function () {
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `
-    } else if (gap == 2) {
-        asteroid1 = img`
+        } else if (gap == 2) {
+            asteroid1 = img`
 . . . . b b b . . . . . . . . . 
 . . . b b c b b b . . . . . . . 
 . . b c c c c c c b b . . . . . 
@@ -851,7 +855,7 @@ b b b b c c c c b b b b c b . .
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `
-        asteroid2 = img`
+            asteroid2 = img`
 . . . . . . . . b b b b . . . . 
 . . . . . b b b b b b b b b . . 
 . . . . . b b b b b b b b b . . 
@@ -869,8 +873,8 @@ b b b b b b b b b b b . . . . .
 . . . . b b b b b . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `
-    } else {
-        asteroid1 = img`
+        } else {
+            asteroid1 = img`
 . . . . . b b b b b b . . . . . 
 . . b b b b b b b b b b b . . . 
 . b b b b b b b b b b b b b . . 
@@ -888,7 +892,7 @@ b b b b b b b b b b b . . . . .
 . . . . b b b b b b b . . . . . 
 . . . . . . . . . . . . . . . . 
 `
-        asteroid2 = img`
+            asteroid2 = img`
 . . . . . . . . b b b b b . . . 
 . . . b b b b b b b b b b b b . 
 . . b b b b b c c c c c c c b . 
@@ -906,11 +910,94 @@ b b b b b b b b b b b b b . . .
 . . . b b b b b b . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `
+        }
+        asteroidProjectile = sprites.createProjectileFromSide(asteroid1, 0, 25)
+        asteroidProjectile.left = Math.randomRange(0, 110)
+        asteroidProjectile = sprites.createProjectileFromSide(asteroid1, 0, 25)
+        asteroidProjectile.right = Math.randomRange(0, 100)
+    } else if (level == 1) {
+        info.changeScoreBy(2)
+        gap2 = Math.randomRange(1, 3)
+        if (gap2 == 0) {
+            shootingStar = img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . 5 5 5 5 5 5 . . . 
+. . . . 5 5 5 5 5 5 5 5 5 . . . 
+. . . 5 5 5 5 5 c 5 5 5 5 5 . . 
+. . 5 5 5 5 5 c 5 5 5 5 5 5 . . 
+. 5 5 5 5 5 5 5 5 5 5 5 5 5 5 . 
+. 5 5 5 c 5 5 5 5 5 5 5 5 5 5 . 
+. 5 5 5 c 5 5 5 5 c 5 5 5 5 5 . 
+. 5 5 5 c 5 5 5 5 5 5 5 5 5 5 . 
+. . 5 5 5 5 5 c 5 5 5 5 5 5 5 5 
+. . 5 5 5 5 5 c c 5 5 5 5 5 5 5 
+. . . 5 5 5 5 5 5 5 5 5 5 5 5 5 
+. . . . 5 5 5 5 5 5 5 5 5 5 5 . 
+. . . . . . . . 5 5 5 5 5 5 5 . 
+. . . . . . . . . 5 5 5 5 5 5 . 
+`
+        } else if (gap2 == 1) {
+            shootingStar = img`
+. . . . . . . . . . . . . . . . 
+. . . 5 5 . . . . . . . . . . . 
+. . 5 5 5 5 5 5 . . . . . . . . 
+. . 5 5 5 5 5 5 5 5 5 . . . . . 
+. . 5 5 5 5 5 5 5 c 5 . . . . . 
+. . 5 5 5 5 5 c c c 5 . . . . . 
+. . 5 5 5 5 5 c c c 5 . . . . . 
+. 5 5 5 5 5 c 5 c c 5 5 . . . . 
+. 5 5 5 5 5 5 5 c c 5 5 5 . . . 
+. 5 5 c 5 5 5 5 c 5 5 5 5 . . . 
+. 5 c c 5 5 c c c 5 5 5 5 . . . 
+. 5 5 5 5 5 c c c c 5 5 5 . . . 
+. 5 5 5 5 5 5 c c c 5 5 5 . . . 
+. . 5 5 5 5 5 5 c c 5 5 . . . . 
+. . . 5 5 5 5 . 5 5 5 . . . . . 
+. . . . . . . . . . . . . . . . 
+`
+        } else if (gap2 == 2) {
+            shootingStar = img`
+. . . . 5 5 5 . . . . . . . . . 
+. . . 5 5 c 5 5 5 . . . . . . . 
+. . 5 c c c c c c 5 5 . . . . . 
+. . 5 c c c 5 c c c 5 5 . . . . 
+. 5 c c c 5 5 5 c c c 5 . . . . 
+5 5 c 5 5 c c 5 c c c 5 . . . . 
+5 c c 5 c c c 5 5 c c c 5 . . . 
+5 c 5 5 5 c c c c 5 c c c 5 . . 
+5 c 5 5 5 5 c c c c 5 c c 5 . . 
+5 c c 5 c 5 5 c c c c 5 c 5 . . 
+5 5 5 c 5 5 5 5 c c c 5 c 5 . . 
+5 5 5 5 c c c c 5 5 5 5 c 5 . . 
+. 5 5 . 5 5 5 c c c c c c 5 . . 
+. . . . . . 5 5 5 5 5 5 5 . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`
+        } else {
+            shootingStar = img`
+. . . . . 5 5 5 5 5 5 . . . . . 
+. . 5 5 5 5 5 5 5 5 5 5 5 . . . 
+. 5 5 5 5 5 5 5 5 5 5 5 5 5 . . 
+. 5 5 5 5 5 c c 5 5 5 5 5 5 . . 
+. 5 5 5 5 5 c b c 5 5 5 5 5 . . 
+. 5 5 5 5 c c b c c 5 5 5 5 . . 
+. 5 5 5 5 5 c c c c 5 5 5 5 . . 
+. 5 5 5 5 5 5 c c c c 5 5 5 . . 
+. 5 5 5 5 5 5 5 5 c c 5 5 5 . . 
+. 5 5 5 5 c 5 c 5 c c 5 5 5 . . 
+. 5 5 5 5 c c 5 5 c c 5 5 5 . . 
+. 5 5 5 5 5 5 5 5 5 5 5 5 5 . . 
+. 5 5 5 5 5 5 5 5 5 5 5 5 5 . . 
+. 5 5 5 5 5 5 5 5 5 5 5 5 . . . 
+. . . . 5 5 5 5 5 5 5 . . . . . 
+. . . . . . . . . . . . . . . . 
+`
+        }
+        starProjectile = sprites.createProjectileFromSide(shootingStar, 0, 25)
+        asteroidProjectile.left = Math.randomRange(0, 110)
     }
-    asteroidProjectile = sprites.createProjectileFromSide(asteroid1, 0, 25)
-    asteroidProjectile.left = Math.randomRange(0, 110)
-    asteroidProjectile = sprites.createProjectileFromSide(asteroid1, 0, 25)
-    asteroidProjectile.right = Math.randomRange(0, 100)
 })
 game.onUpdate(function () {
     spaceShip.setFlag(SpriteFlag.StayInScreen, true)
