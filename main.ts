@@ -48,21 +48,6 @@ function sprite () {
     controller.moveSprite(spaceShip, 500, 0)
     spaceShip.setPosition(80, 4000)
 }
-function thirdMessage () {
-    game.splash("// Transmission Begins //")
-    game.splash("We finally got in contact ", "with HQ")
-    game.splash("They need a Business", "Package transported ASAP")
-    game.splash("Get to Planet Johnson", "In the Tennessee system")
-    game.splash("// Transmission Ends //")
-}
-function level3 () {
-    if (level == 2) {
-        // makes spaceShip go up no matter what
-        spaceShip.ay = -300
-    } else {
-        thirdMessage()
-    }
-}
 function level2Stars () {
     info.changeScoreBy(2)
     gap2 = Math.randomRange(1, 3)
@@ -145,6 +130,14 @@ function level2Stars () {
     }
     starProjectile = sprites.createProjectileFromSide(shootingStar, 0, 25)
     starProjectile.left = Math.randomRange(0, 200)
+}
+function level3 () {
+    if (level == 2) {
+        // makes spaceShip go up no matter what
+        spaceShip.ay = -300
+    } else {
+        thirdMessage()
+    }
 }
 function level2 () {
     if (level == 1) {
@@ -1066,6 +1059,13 @@ f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
 }
 function spriteBullet () {
 	
+}
+function thirdMessage () {
+    game.splash("// Transmission Begins //")
+    game.splash("We finally got in contact ", "with HQ")
+    game.splash("They need a Business", "Package transported ASAP")
+    game.splash("Get to Planet Johnson", "In the Tennessee system")
+    game.splash("// Transmission Ends //")
 }
 info.onLifeZero(function () {
     game.over(false)
