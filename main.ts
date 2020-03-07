@@ -150,7 +150,10 @@ function level2 () {
 }
 function secondMessage () {
     game.splash("// Transmission Begins //")
-    game.splash("A large area of", "")
+    game.splash("We finally got in contact ", "with HQ")
+    game.splash("They need a Business", "Package transported ASAP")
+    game.splash("Get to Planet Johnson", "In the Tennessee system")
+    game.splash("// Transmission Ends //")
 }
 function lifeSystem () {
     info.setLife(10)
@@ -1062,10 +1065,9 @@ function spriteBullet () {
 }
 function thirdMessage () {
     game.splash("// Transmission Begins //")
-    game.splash("We finally got in contact ", "with HQ")
-    game.splash("They need a Business", "Package transported ASAP")
-    game.splash("Get to Planet Johnson", "In the Tennessee system")
-    game.splash("// Transmission Ends //")
+}
+function level3Asteroids () {
+    info.changeScoreBy(3)
 }
 info.onLifeZero(function () {
     game.over(false)
