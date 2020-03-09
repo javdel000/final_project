@@ -1065,6 +1065,7 @@ function spriteBullet () {
 }
 function thirdMessage () {
     game.splash("// Transmission Begins //")
+    game.splash("A large area of", "")
 }
 function level3Asteroids () {
     info.changeScoreBy(3)
