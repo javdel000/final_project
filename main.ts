@@ -1,7 +1,15 @@
+sprites.onCreated(SpriteKind.Projectile, function (sprite2) {
+	
+})
 scene.onHitTile(SpriteKind.Player, 13, function (sprite2) {
     level += 1
     tileMaps()
-    level2()
+    if (level == 1) {
+        level2()
+    }
+    if (level == 2) {
+        level3()
+    }
 })
 function sprite () {
     spaceShip = sprites.create(img`
@@ -45,7 +53,7 @@ function sprite () {
     // makes spaceShip go up no matter what
     spaceShip.ay = -90
     // Allows you to move side to side
-    controller.moveSprite(spaceShip, 500, 0)
+    controller.moveSprite(spaceShip, 500, 5000)
     spaceShip.setPosition(80, 4000)
 }
 function level2Stars () {
@@ -135,7 +143,8 @@ function level3 () {
     if (level == 2) {
         // makes spaceShip go up no matter what
         spaceShip.ay = -300
-    } else {
+    }
+    if (level == 2) {
         thirdMessage()
     }
 }
@@ -171,7 +180,9 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite2, o
     scene.cameraShake(4, 500)
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    spriteBullet()
+    if (level == 2) {
+        spriteBullet()
+    }
 })
 function tileMaps () {
     list = [img`
@@ -427,7 +438,7 @@ f f f f f f 2 f f f
 f f f f f f f f f f 
 `, img`
 f f f f f f f f f f 
-f f f f f f f f f f 
+d d d d d d d d d d 
 f f 2 f f f f f f f 
 f f 2 f f f f f f f 
 f f f f f f f f f f 
@@ -677,256 +688,256 @@ f f f f f f f f f f
 f f f f f f f f f f 
 f f f f f f f f f f 
 `, img`
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f 2 f f f f f f f 
-f f 2 f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f 2 f f f f 
-f f f f f f 2 f f f 
-f f f f f f f f f f 
-f f f 2 f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f 2 f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f 2 f f f f f 
-f f f f 2 f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f 2 2 f f f 
-f f f f f f 2 f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f 2 f f f f f 
-f f f f 2 2 f f f f 
-f f f f f 2 2 f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f 2 f f f f f f f 
-f f 2 f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f 2 f 2 f f 
-f f f f f f f 2 f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f 2 f f f f 
-f f f f f 2 f f f f 
-f f f f 2 f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f 2 f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f 2 f f f 2 f f f f 
-f 2 f f 2 f f f f f 
-f 2 f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f 2 2 f f f f 
-f f f f 2 f f f f f 
-f f f f f f f f f f 
-f f f f 2 2 f f f f 
-f f f f f f f f f f 
-2 f f f f 2 f f f f 
-2 f f f 2 f f f f f 
-f 2 f f f f f f f f 
-f f 2 f f f f f f f 
-f f f f f f f f f f 
-f f f f 2 f f f f f 
-f f f f 2 f f f f f 
-f f f f f 2 f f f f 
-f f f f f 2 f f f f 
-f f f f f f 2 f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f 2 f f f f f f f f 
-f f 2 f 2 f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f 2 f 
-f f f f f f f f f 2 
-f f f f f f f f f f 
-f f 2 f f 2 f f f f 
-f f f f 2 f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f 2 f f f f f f f 
-f f f f f f f f f f 
-f 2 f f f f f f f f 
-f f 2 f f f f f f f 
-f f 2 f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f 2 f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f 2 f f f f f 
-f f f f 2 f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f 2 f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f 2 
-f f f f f f f f f f 
-2 f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f 2 f f f f 
-f f f f f 2 f f f f 
-f f f f f 2 f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f 2 f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f 2 f f f f 
-f f f f 2 f f f f f 
-f f f f 2 f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f 2 f f f f f 
-f f f f 2 f f f f f 
-f f f f f 2 f f 2 f 
-f f f f f 2 f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f 2 f f f f f 
-f f f f f 2 f f f f 
-f f f f f 2 f f f f 
-f f f f f 2 f f f f 
-f f f f 2 f f f f f 
-f f f f 2 f f f f f 
-f f f f 2 f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f 2 
-f f f f f f f f 2 2 
-f f f f f f f f 2 2 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f 2 f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f 2 f f 
-f f f f f f f f 2 f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f 2 f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f 2 f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
-f f f f f f f f f f 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 2 3 3 3 3 3 3 3 
+3 3 2 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 2 3 3 3 3 
+3 3 3 3 3 3 2 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 2 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 2 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 2 3 3 3 3 3 
+3 3 3 3 2 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 2 2 3 3 3 
+3 3 3 3 3 3 2 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 2 3 3 3 3 3 
+3 3 3 3 2 2 3 3 3 3 
+3 3 3 3 3 2 2 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 2 3 3 3 3 3 3 3 
+3 3 2 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 2 3 2 3 3 
+3 3 3 3 3 3 3 2 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 2 3 3 3 3 
+3 3 3 3 3 2 3 3 3 3 
+3 3 3 3 2 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 2 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 2 3 3 3 2 3 3 3 3 
+3 2 3 3 2 3 3 3 3 3 
+3 2 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 2 2 3 3 3 3 
+3 3 3 3 2 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 2 2 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+2 3 3 3 3 2 3 3 3 3 
+2 3 3 3 2 3 3 3 3 3 
+3 2 3 3 3 3 3 3 3 3 
+3 3 2 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 2 3 3 3 3 3 
+3 3 3 3 2 3 3 3 3 3 
+3 3 3 3 3 2 3 3 3 3 
+3 3 3 3 3 2 3 3 3 3 
+3 3 3 3 3 3 2 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 2 3 3 3 3 3 3 3 3 
+3 3 2 3 2 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 2 3 
+3 3 3 3 3 3 3 3 3 2 
+3 3 3 3 3 3 3 3 3 3 
+3 3 2 3 3 2 3 3 3 3 
+3 3 3 3 2 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 2 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 2 3 3 3 3 3 3 3 3 
+3 3 2 3 3 3 3 3 3 3 
+3 3 2 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 2 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 2 3 3 3 3 3 
+3 3 3 3 2 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 2 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 2 
+3 3 3 3 3 3 3 3 3 3 
+2 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 2 3 3 3 3 
+3 3 3 3 3 2 3 3 3 3 
+3 3 3 3 3 2 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 2 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 2 3 3 3 3 
+3 3 3 3 2 3 3 3 3 3 
+3 3 3 3 2 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 2 3 3 3 3 3 
+3 3 3 3 2 3 3 3 3 3 
+3 3 3 3 3 2 3 3 2 3 
+3 3 3 3 3 2 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 2 3 3 3 3 3 
+3 3 3 3 3 2 3 3 3 3 
+3 3 3 3 3 2 3 3 3 3 
+3 3 3 3 3 2 3 3 3 3 
+3 3 3 3 2 3 3 3 3 3 
+3 3 3 3 2 3 3 3 3 3 
+3 3 3 3 2 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 2 
+3 3 3 3 3 3 3 3 2 2 
+3 3 3 3 3 3 3 3 2 2 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 2 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 2 3 3 
+3 3 3 3 3 3 3 3 2 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 2 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 2 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
+3 3 3 3 3 3 3 3 3 3 
 `]
     scene.setTileMap(list[level])
     tiles.placeOnTile(spaceShip, tiles.getTileLocation(3, 248))
@@ -1061,14 +1072,58 @@ f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f f 
     game.splash("// Transmission Ends //")
 }
 function spriteBullet () {
-	
+    projectile = sprites.createProjectileFromSprite(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . a a a a . . . . . . 
+. . . . . a . . . . a . . . . . 
+. . . . . a . . . . a . . . . . 
+. . . . . a . . . . a . . . . . 
+. . . . . a . . . . a . . . . . 
+. . . . . . a a a a . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, spaceShip, 0, -50)
+}
+function levell3Score () {
+    info.changeScoreBy(3)
 }
 function thirdMessage () {
     game.splash("// Transmission Begins //")
-    game.splash("A large area of", "")
+    game.splash("Asteroids are", "heading your way")
+    game.splash("Get rid of it", "And get here ASAP")
+    game.splash("You have been authorized to use force.")
+    game.splash("// Transmission Ends //")
 }
 function level3Asteroids () {
-    info.changeScoreBy(3)
+    if (level == 2) {
+        constantAsteroid = img`
+. . . . 4 4 5 5 2 4 . . . . . . 
+. . . . 4 2 8 4 4 4 4 2 . . . . 
+. . . 4 8 2 b b b b 4 4 . . . . 
+. . . 2 b b c c c c b 4 . . . . 
+. . . 2 b c c 2 c c c b 2 . . . 
+. . . b b c c c c c c b b . . . 
+. . . b c c c c c c f . b . . . 
+. . . b c 2 c c c c c b b . . . 
+. . . b c 2 c c c c c b . . . . 
+. . b f c 2 c c c c c b . . . . 
+. . b c c c c c c 2 c b . . . . 
+. . b c c c f c c 2 c b . . . . 
+. . . b b c c c c c b b . . . . 
+. . . . b b b b b b . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`
+        asteroidProjectile = sprites.createProjectileFromSide(constantAsteroid, 0, 25)
+        asteroidProjectile.left = Math.randomRange(0, 100)
+    }
 }
 info.onLifeZero(function () {
     game.over(false)
@@ -1233,6 +1288,8 @@ b b b b b b b b b b b b b . . .
 let asteroid2: Image = null
 let asteroid1: Image = null
 let gap = 0
+let constantAsteroid: Image = null
+let projectile: Sprite = null
 let list: Image[] = []
 let asteroidProjectile: Sprite = null
 let starProjectile: Sprite = null
@@ -1271,6 +1328,14 @@ game.onUpdateInterval(1500, function () {
 })
 game.onUpdate(function () {
     spaceShip.setFlag(SpriteFlag.StayInScreen, true)
+})
+game.onUpdateInterval(10, function () {
+    level3Asteroids()
+})
+game.onUpdateInterval(1000, function () {
+    if (level == 2) {
+        levell3Score()
+    }
 })
 game.onUpdateInterval(1000, function () {
     if (level == 1) {
