@@ -172,7 +172,7 @@ function camera () {
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite2, otherSprite) {
     pause(175)
-    info.changeScoreBy(-1)
+    info.changeScoreBy(-2)
     pause(175)
     info.changeLifeBy(-1)
     asteroidProjectile.destroy()
